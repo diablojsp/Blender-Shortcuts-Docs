@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Blender Docs Scream</title>
+<link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/0/0c/Blender_logo_no_text.svg">
+<style>
+body {
+    margin: 0;
+    background: #ee9106;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -180px; 
+    width: 180px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+    z-index: 1000;
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 1em;
+    color: white;
+    display: block;
+    transition: 0.2s;
+}
+
+.sidebar a:hover {
+    background-color: #575757;
+}
+
+/* Trigger area for hover (invisible) */
+.trigger-area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px; 
+    height: 100%;
+    z-index: 999;
+}
+
+/* Slide out sidebar when hover */
+.trigger-area:hover + .sidebar,
+.sidebar:hover {
+    left: 0;
+}
+
+/* Page content */
+.page {
+    margin: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.25);
+    background: white;
+    padding: 20px;
+    width: 80%;
+    text-align: center;
+    transition: margin-left 0.3s;
+}
+
+.page img {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Side-by-side container */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* Left and right blocks */
+.left, .right {
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+    min-width: 300px;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: left;
+}
+
+/* Headings */
+.heading {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 15px 0 10px 0;
+}
+
+/* Shortcut rows */
+.shortcut {
+    display: flex;
+    justify-content: space-between;
+    background: #eee;
+    padding: 2px 6px;
+    margin-bottom: 3px;
+    border-radius: 3px;
+    font-size: 0.95em;
+}
+</style>
+</head>
+<body>
+
+<div class="trigger-area"></div>
+
+<div class="sidebar">
+    <a href="#general">General</a>
+    <a href="#navigation">Navigation</a>
+    <a href="#view">View</a>
+    <a href="#objectmode">Object Mode</a>
+    <a href="#editmode">Edit Mode</a>
+    <a href="#animation">Animation</a>
+    <a href="#sculpting">Sculpting</a>
+    <a href="#uv">UV & Image Editor</a>
+    <a href="#nodes">Nodes & Compositor</a>
+    <a href="#rigging">Rigging & Posing</a>
+</div>
+
+<div class="page">
+    <h1>Blender Keyboard Shortcuts And Tips & Tricks</h1>
+    <p>Inspired By Blender Guru</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Blender_logo_no_text.svg" width="100">
+
+    <div class="row">
+        <div class="left" id="general">
+            <p class="heading">General (most window types)</p>
+            <div class="shortcut"><span>Toolbar</span><span>T</span></div>
+            <div class="shortcut"><span>Properties</span><span>N</span></div>
+            <div class="shortcut"><span>Add Object/Node</span><span>Shift + A</span></div>
+            <div class="shortcut"><span>Delete</span><span>X or Delete</span></div>
+            <div class="shortcut"><span>Search</span><span>F3</span></div>
+            <div class="shortcut"><span>Move</span><span>G</span></div>
+            <div class="shortcut"><span>Scale</span><span>S</span></div>
+            <div class="shortcut"><span>Rotate</span><span>R</span></div>
+            <div class="shortcut"><span>Rotate along axis</span><span>R then X/Y/Z</span></div>
+            <div class="shortcut"><span>Trackball Rotate</span><span>R, R</span></div>
+            <div class="shortcut"><span>Precise movement</span><span>Shift (hold)</span></div>
+            <div class="shortcut"><span>Incremental movement</span><span>Ctrl (hold)</span></div>
+            <div class="shortcut"><span>Duplicate</span><span>Shift + D</span></div>
+            <div class="shortcut"><span>Duplicate Linked</span><span>Alt + D</span></div>
+            <div class="shortcut"><span>Hide</span><span>H</span></div>
+            <div class="shortcut"><span>Unhide All</span><span>Alt + H</span></div>
+            <div class="shortcut"><span>Hide all Except Selected</span><span>Shift + H</span></div>
+            <div class="shortcut"><span>Annotate</span><span>D (hold) + LMB (drag)</span></div>
+            <div class="shortcut"><span>Erase Annotation</span><span>D (hold) + RMB (drag)</span></div>
+            <div class="shortcut"><span>Quick favs menu</span><span>Q</span></div>
+        </div>
+
+        <div class="right" id="navigation">
+            <p class="heading">Navigation (3D viewport)</p>
+            <div class="shortcut"><span>Orbit</span><span>MMB</span></div>
+            <div class="shortcut"><span>Pan</span><span>Shift + MMB</span></div>
+            <div class="shortcut"><span>Zoom In/Out</span><span>Scroll or Ctrl + MMB</span></div>
+            <div class="shortcut"><span>Fly</span><span>Shift + ~</span></div>
+
+            <p class="heading" id="view">View (3D viewport)</p>
+            <div class="shortcut"><span>Top</span><span>7</span></div>
+            <div class="shortcut"><span>Up</span><span>8</span></div>
+            <div class="shortcut"><span>Opposite</span><span>9</span></div>
+            <div class="shortcut"><span>Left</span><span>4</span></div>
+            <div class="shortcut"><span>Persp/Ortho</span><span>5</span></div>
+            <div class="shortcut"><span>Right</span><span>6</span></div>
+            <div class="shortcut"><span>Front</span><span>1</span></div>
+            <div class="shortcut"><span>Down</span><span>2</span></div>
+            <div class="shortcut"><span>Side</span><span>3</span></div>
+            <div class="shortcut"><span>Camera</span><span>0</span></div>
+            <div class="shortcut"><span>Focus</span><span>Dot (.)</span></div>
+            <div class="shortcut"><span>View Pie Menu</span><span>~</span></div>
+            <div class="shortcut"><span>Fast View Switch</span><span>Alt + MMB (drag)</span></div>
+            <div class="shortcut"><span>Show All Objects</span><span>Home</span></div>
+            <div class="shortcut"><span>Focus to region</span><span>Shift + B</span></div>
+        </div>
+    </div>
+
+    <!-- Additional rows for Object Mode, Edit Mode, Animation, Sculpting, UV, Nodes, Rigging, etc. -->
+
+    <div class="row">
+        <div class="left" id="objectmode">
+            <p class="heading">Object Mode</p>
+            <div class="shortcut"><span>Mode Pie Menu</span><span>Ctrl + TAB</span></div>
+            <div class="shortcut"><span>Edit/Object mode toggle</span><span>TAB</span></div>
+            <div class="shortcut"><span>Mirror</span><span>Ctrl + M then X/Y/Z</span></div>
+            <div class="shortcut"><span>Set Parent</span><span>Ctrl + P</span></div>
+            <div class="shortcut"><span>Clear Parent</span><span>Alt + P</span></div>
+            <div class="shortcut"><span>Toggle Snapping</span><span>Shift + TAB</span></div>
+            <div class="shortcut"><span>Clear Location</span><span>Alt + G</span></div>
+            <div class="shortcut"><span>Clear Rotation</span><span>Alt + R</span></div>
+            <div class="shortcut"><span>Clear Scale</span><span>Alt + S</span></div>
+            <div class="shortcut"><span>Apply Location / Scale / Rotation</span><span>Ctrl + A</span></div>
+            <div class="shortcut"><span>Join Selected Objects</span><span>Ctrl + J</span></div>
+            <div class="shortcut"><span>Copy Attributes to New Objects</span><span>Ctrl + L</span></div>
+        </div>
+
+        <div class="right" id="editmode">
+            <p class="heading">Edit Mode & Modeling</p>
+            <div class="shortcut"><span>Extrude</span><span>E</span></div>
+            <div class="shortcut"><span>Inset</span><span>I</span></div>
+            <div class="shortcut"><span>Bevel</span><span>Ctrl + B</span></div>
+            <div class="shortcut"><span>Loop cut</span><span>Ctrl + R</span></div>
+            <div class="shortcut"><span>Knife</span><span>K</span></div>
+            <div class="shortcut"><span>Merge</span><span>M</span></div>
+            <div class="shortcut"><span>Recalculate Normals</span><span>Shift + N</span></div>
+            <div class="shortcut"><span>Flip Normals</span><span>Ctrl + Shift + N</span></div>
+            <div class="shortcut"><span>Proportional Editing On/Off</span><span>O</span></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="left" id="animation">
+            <p class="heading">Animation</p>
+            <div class="shortcut"><span>Play/Pause</span><span>Spacebar</span></div>
+            <div class="shortcut"><span>Render Animation</span><span>Ctril + F12</span></div>
+            <div class="shortcut"><span>Reverse Play</span><span>Ctrl + Shift + Space</span></div>
+            <div class="shortcut"><span>Scroll Through Frames</span><span>Alt + Scroll</span></div>
+            <div class="shortcut"><span>Next/Previous</span><span>Left/Right Arrow</span></div>
+        </div>
+    
+        <div class="right" id="sculpting">
+            <p class="heading">Sculpting</p>
+            <div class="shortcut"><span>Toolbar</span><span>T</span></div>
+        </div>
+
+    <div class="row">
+        <div class="left" id="uv">
+            <p class="heading">UV Editing</p>
+            <div class="shortcut"><span>Toolbar</span><span>T</span></div>
+        </div>
+
+        <div class="right" id="nodes">
+            <p class="heading">Nodes</p>
+            <div class="shortcut"><span>Toolbar</span><span>T</span></div>
+        </div>
+
+    <div class="row">
+        <div class="left" id="rigging">
+            <p class="heading">Rigging</p>
+            <div class="shortcut"><span>Toolbar</span><span>T</span></div>
+        </div>
+
+        <div class="right" id="animation">
+            <p class="heading">General (most window types)</p>
+            <div class="shortcut"><span>Toolbar</span><span>T</span></div>
+        </div>
+
+    <div class="row">
+        <div class="left" id="animation">
+            <p class="heading">General (most window types)</p>
+            <div class="shortcut"><span>Toolbar</span><span>T</span></div>
+        </div>
+
+        <div class="left" id="animation">
+            <p class="heading">General (most window types)</p>
+            <div class="shortcut"><span>Toolbar</span><span>T</span></div>
+        </div>
+
+    <!-- You can continue adding rows for Animation, Sculpting, UV Editor, Nodes, Rigging, etc. -->
+
+</div>
+</body>
+</html>
